@@ -1,0 +1,12 @@
+MongoDB - utilizando para largas escalas de dados mas com poucos relacionamentos. Ex: Tweetes, anúncios;
+
+1 opção
+é possível utilizaro mongoDB atlas online 
+
+2 opção
+usar via Docker - 
+docker run --name mongomarketplace -p 27017:27017 -d -t mongo
+
+
+Mongoose - ORM para trabalhar com o MonboDB 
+yarn add mongoose
