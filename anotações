@@ -19,3 +19,6 @@ O token determina se o usuário está logado, deslogado, formato correto, válid
 - No padrão REST não utiliza sessões, ou seja, n vai ser guardado um cookie entre a req e a res através de uma sessão.
 
 yarn add jsonwebtoken - biblioteca para criação e validação de tokens
+
+-----------
+yarn add require-dir -> Utilizada para realizar importações automáticas

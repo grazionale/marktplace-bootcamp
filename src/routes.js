@@ -4,11 +4,10 @@ const routes = express.Router()
 
 const authMiddleware = require('./app/middlewares/auth')
 
-const userController = require('./app/controllers/UserController')
-const sessionController = require('./app/controllers/SessionController')
+const controllers = require('./app/controllers')
 
-routes.post('/users', userController.store) // Criar usuárioy
-routes.post('/sessions', sessionController.store) // Criar sessão
+routes.post('/users', controllers.UserController.store) // Criar usuárioy
+routes.post('/sessions', controllers.SessionController.store) // Criar sessão
 
 routes.get('/teste', authMiddleware, (req, res) => { res.json({ ok: true }) })// Criar sessão
 
