@@ -10,3 +10,12 @@ docker run --name mongomarketplace -p 27017:27017 -d -t mongo
 
 Mongoose - ORM para trabalhar com o MonboDB 
 yarn add mongoose
+
+--------
+autenticação por JWT - (Json web token)
+- é um token gerado apartir da verificação do usuário/senha através de um segredo que está na aplicação. E a partir do token, quando devolvido para o frontend, este token 
+precisa ser utilizado para todas as requisições subsequentes. Este token, tem que ser guardado em algum lugar, por exemplo, no localstorage, no asyncstorage, etc.
+O token determina se o usuário está logado, deslogado, formato correto, válido, usuário malicioso, etc.
+- No padrão REST não utiliza sessões, ou seja, n vai ser guardado um cookie entre a req e a res através de uma sessão.
+
+yarn add jsonwebtoken - biblioteca para criação e validação de tokens
