@@ -1,8 +1,12 @@
 const Ad = require('../models/Ad')
-
 class AdController {
   async index (req, res) { // listagem de N items
-    const ads = await Ad.find()
+    const ads = await Ad.paginate({}, { // Quando não utilizar paginação, usar o método find()
+      page: req.params.page || 1,
+      limit: 20,
+      sort: '-createdAt',
+      populate: ['author'] // Populate serve para mostrar os dados do author que estão vinculados a este Ad
+    })
 
     return res.json(ads)
   }
