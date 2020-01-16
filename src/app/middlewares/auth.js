@@ -15,10 +15,7 @@ module.exports = async (req, res, next) => {
 
   try {
     const decoded = await jwt.verify(token, authConfig.secret) // Verifica e descodifica o token
-    console.log('aqui')
-    console.log('decoded', decoded)
     req.userId = decoded.id // Com o token descodificado, podemos acessar o ID do user que haviamos armazenado quando o token foi gerado
-    console.log('req.userId', req.userId)
     return next()
   } catch (err) {
     console.log(err)
