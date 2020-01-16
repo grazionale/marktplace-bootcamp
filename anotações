@@ -25,3 +25,10 @@ yarn add require-dir -> Utilizada para realizar importações automáticas
 
 ---------
 yarn add mongoose-paginate  -> utilizado para realizar paginação no mongo
+---------
+yarn add nodemailer -> utilizado para disparo de e-mails
+-------
+MailTrap 
+Ferramenta para utilizar em ambiente de desenvolvimento de teste de e-mails, 
+todo e-mail enviado utilizando o SMTP desta ferramenta, irá caixar numa mesma 
+caixa de entrada, independente do destinatário
