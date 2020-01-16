@@ -22,3 +22,6 @@ yarn add jsonwebtoken - biblioteca para criação e validação de tokens
 
 -----------
 yarn add require-dir -> Utilizada para realizar importações automáticas
+
+---------
+yarn add mongoose-paginate  -> utilizado para realizar paginação no mongo
