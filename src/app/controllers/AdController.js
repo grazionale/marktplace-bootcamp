@@ -1,7 +1,25 @@
 const Ad = require('../models/Ad')
 class AdController {
   async index (req, res) { // listagem de N items
-    const ads = await Ad.paginate({}, { // Quando não utilizar paginação, usar o método find()
+    const filters = {}
+
+    if (req.query.price_min || req.query.price_max) {
+      filters.price = {}
+
+      if (req.query.price_min) {
+        filters.price.$gte = req.query.price_min
+      }
+
+      if (req.query.price_max) {
+        filters.price.$lte = req.query.price_max
+      }
+    }
+
+    if (req.query.title) {
+      filters.title = new RegExp(req.query.title, 'i') // Utiliza regexp para fazer uma LIKE e não um =, o i é para ingorar o case sensitive.
+    }
+
+    const ads = await Ad.paginate(filters, { // Quando não utilizar paginação, usar o método find()
       page: req.params.page || 1,
       limit: 20,
       sort: '-createdAt',
