@@ -19,5 +19,4 @@ class PurchaseController {
     return res.send()
   }
 }
-
 module.exports = new PurchaseController()
