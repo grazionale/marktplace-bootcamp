@@ -32,3 +32,8 @@ MailTrap
 Ferramenta para utilizar em ambiente de desenvolvimento de teste de e-mails, 
 todo e-mail enviado utilizando o SMTP desta ferramenta, irá caixar numa mesma 
 caixa de entrada, independente do destinatário
+
+------
+yarn add nodemailer-express-handlebars
+yarn add expres-handlebars
+utilizadas para criar templates htmls que possuem variveis, é menos completa que o nunjuncks, porém mais leve.
