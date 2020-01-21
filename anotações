@@ -37,3 +37,9 @@ caixa de entrada, independente do destinatário
 yarn add nodemailer-express-handlebars
 yarn add expres-handlebars
 utilizadas para criar templates htmls que possuem variveis, é menos completa que o nunjuncks, porém mais leve.
+
+------
+instalando Redis para trabalhar com filas no disparo de e-mail 
+docker run --name noderedis -p 6379:6379 -d redis:alpine
+
+yarn add kue -- biblioteca usada para lidar com filas
