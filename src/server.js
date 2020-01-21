@@ -30,6 +30,7 @@ class App {
     this.express.use(require('./routes'))
   }
 
+  // Handler Exception
   exception () {
     /**
      * Quando um middleware possuí 4 parâmetros, o primeiro passa ser o erro,
