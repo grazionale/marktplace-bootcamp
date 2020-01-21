@@ -1,18 +1,25 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const Youch = require('youch')
-const validate = require('express-validation')
+const Youch = require('youch') // Biblioteca para formar erros em HTML, json, etc
+const Sentry = require('@sentry/node') // Biblioteca para armazenar erros que ocorrem em produção com nosso usuário
+const validate = require('express-validation') // Biblioteca para fazer validações de schemas
 const databaseConfig = require('./config/database')
+const sentryConfig = require('./config/sentry')
 
 class App {
   constructor () {
     this.express = express()
     this.isDev = process.env.NODE_ENV !== 'production'
 
+    this.sentry()
     this.database()
     this.middlewares()
     this.routes()
     this.exception() // Obrigatório vir depois das rotas
+  }
+
+  sentry () {
+    Sentry.init(sentryConfig)
   }
 
   database () {
@@ -24,6 +31,7 @@ class App {
 
   middlewares () {
     this.express.use(express.json())
+    this.express.use(Sentry.Handlers.requestHandler())
   }
 
   routes () {
@@ -32,6 +40,9 @@ class App {
 
   // Handler Exception
   exception () {
+    // if (process.env.NODE_ENV === 'production') {
+    this.express.use(Sentry.Handlers.requestHandler())
+    // }
     /**
      * Quando um middleware possuí 4 parâmetros, o primeiro passa ser o erro,
      * e o express entende que esse middleware é para tratamento de erros.
@@ -52,8 +63,9 @@ class App {
         /**
          * É possível retornar o erro em formado JSON e também em HTML,
          * para retornar em JSON usar: return res.json(await youch.toJSON())
+         * para retornar em HTML usar: return res.send(await youch.toHTML())
          */
-        return res.send(await youch.toHTML())
+        return res.json(await youch.toJSON())
       }
       /**
        * Se ñ houve um status, então retorna-se 500.

@@ -36,6 +36,7 @@ class AdController {
   }
 
   async store (req, res) { // criar um Ad
+    throw new Error()
     /**
      *Pega todas as informações do body, e substitui o author pelo userId da
      request que foi gerado pelo middle de autenticação
