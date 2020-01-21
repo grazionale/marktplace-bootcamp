@@ -43,3 +43,14 @@ instalando Redis para trabalhar com filas no disparo de e-mail
 docker run --name noderedis -p 6379:6379 -d redis:alpine
 
 yarn add kue -- biblioteca usada para lidar com filas
+
+----
+yarn add joi -- biblioteca para fazer validação de schemas.
+Basicamente ela reflete um objeto com um schema e verifica o que n está correto 
+
+yarn add express-validation -- 
+
+----
+yarn add youch - biblioteca para formatar erros 
+yarn add express-async-handler -- biblioteca para conseguir enviar erros que acontem dentro das promisses para dentro do
+exception handler
