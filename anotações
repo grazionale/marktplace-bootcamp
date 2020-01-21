@@ -57,3 +57,6 @@ exception handler
 
 ---
 Sentry, ferramenta para monitoramento de erros da aplicação. Então, quando um usuário tem um erro, esse erro é salvo
+
+---
+yarn add dotenv - biblioteca para lidar com variáveis ambientes

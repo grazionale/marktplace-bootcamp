@@ -1,3 +1,5 @@
+require('dotenv').config() // Biblioteca para lidar com variáveis ambiente
+
 const express = require('express')
 const mongoose = require('mongoose')
 const Youch = require('youch') // Biblioteca para formar erros em HTML, json, etc
