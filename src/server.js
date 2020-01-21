@@ -40,9 +40,9 @@ class App {
 
   // Handler Exception
   exception () {
-    // if (process.env.NODE_ENV === 'production') {
-    this.express.use(Sentry.Handlers.requestHandler())
-    // }
+    if (process.env.NODE_ENV === 'production') {
+      this.express.use(Sentry.Handlers.requestHandler())
+    }
     /**
      * Quando um middleware possuí 4 parâmetros, o primeiro passa ser o erro,
      * e o express entende que esse middleware é para tratamento de erros.
