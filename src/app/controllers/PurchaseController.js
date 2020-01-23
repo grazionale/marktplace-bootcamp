@@ -11,7 +11,11 @@ class PurchaseController {
     const purchaseAd = await Ad.findById(ad).populate('author') // Busca o anúncio e acrescento o author
     const user = await User.findById(req.userId) // Busca o usuário que está fazendo a requisição
 
-    const purchase = await Purchase.create(req.body)
+    const purchase = await Purchase.create({
+      ad,
+      content,
+      user: user._id
+    })
 
     Queue.create(PurchaseMail.key, {
       ad: purchaseAd,
