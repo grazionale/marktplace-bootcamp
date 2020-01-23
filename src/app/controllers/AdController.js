@@ -20,7 +20,7 @@ class AdController {
     }
 
     const ads = await Ad.paginate(filters, { // Quando não utilizar paginação, usar o método find()
-      page: req.params.page || 1,
+      page: req.query.page || 1,
       limit: 20,
       sort: '-createdAt',
       populate: ['author'] // Populate serve para mostrar os dados do author que estão vinculados a este Ad
