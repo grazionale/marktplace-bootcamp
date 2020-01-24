@@ -12,10 +12,10 @@ Principais características alcançadas no projeto:
 
 Para realizar a  instalação do projeto, será necessário a utilização de um banco de dados MongoDB e um banco Redis, além da criação de uma conta no Sentry para obter as credenciais de integração e por fim credenciais para disparo de e-mail. Neste projeto, foi utilizado o MailTrap (gratuito) como serviço de disparo de e-mail. Após terem em mãos os dados de acesso a esses bancos, basta configurar as variáveis de ambiente no arquivo .env. 
 
-## Installation
-Gabriel Grazionale Gomes Fernandes
-
 ```bash
 yarn install
 yarn start
 ```
+
+## Authors
+Gabriel Grazionale Gomes Fernandes
