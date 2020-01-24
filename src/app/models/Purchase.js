@@ -3,7 +3,8 @@ const mongoosePaginate = require('mongoose-paginate')
 
 const Purchase = new mongoose.Schema({
   ad: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Ad',
     required: true
   },
   content: {
